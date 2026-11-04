@@ -1,0 +1,1122 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>闻一多先生 · 民族歌剧 · 红烛不灭</title>
+<meta name="description" content="革命历史题材民族歌剧《闻一多先生》——云南省“讲好五个故事”之③：闻一多发表“最后的演讲”、舍生取义的故事。编剧：孙子岚、白耀洲；音乐：彭侠颖。">
+<link rel="preconnect" href="https://miaoda.feishu.cn">
+<link rel="stylesheet" href="https://miaoda.feishu.cn/fonts/css2?family=Noto+Serif+SC:wght@400;600;700;900&family=Noto+Sans+SC:wght@400;500&display=swap">
+<style>
+/* ===== 基础 ===== */
+:root{
+  --ink:#17120C;
+  --ink-soft:#221A10;
+  --paper:#E7DDC8;
+  --paper-dim:#D4C6A6;
+  --paper-deep:#C4B48F;
+  --body:#241B10;
+  --body-dark:#EFE6D2;
+  --red:#B3202E;
+  --red-dark:#8F1F29;
+  --gold:#D9A441;
+  --gold-soft:#E8C57E;
+  --blue-gray:#5C6663;
+  --serif:"Noto Serif SC","Songti SC","STSong",SimSun,serif;
+  --sans:"Noto Sans SC","PingFang SC","Microsoft YaHei",sans-serif;
+  --pad-s:16px;
+  --pad-m:clamp(20px,4vw,40px);
+  --pad-l:clamp(64px,10vw,140px);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:var(--serif);
+  background:var(--ink);
+  color:var(--body-dark);
+  line-height:1.72;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  text-rendering:optimizeLegibility;
+}
+/* 标题平衡排印（editorial：短标题不出现孤字断行） */
+.act-title,.scene-name,.h2,.h2-sub,.f-title,.epi-title,.scene-quote{text-wrap:balance;}
+/* 极淡纸纹噪点，全页固定 */
+body::before{
+  content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='0.055'/%3E%3C/svg%3E");
+  opacity:.5;
+}
+main{position:relative;z-index:1;}
+img{display:block;max-width:100%;}
+a{color:inherit;text-decoration:none;cursor:pointer;}
+::selection{background:var(--red);color:#fff;}
+/* 历史档案照统一处理（胶片级：灰度 + 暖档案调色） */
+.photo-arch{filter:grayscale(1) contrast(1.07) sepia(.13) brightness(.99);}
+p{text-wrap:pretty;}
+
+/* 焦点可见 */
+a:focus-visible,button:focus-visible{
+  outline:2px solid var(--gold);
+  outline-offset:3px;
+}
+
+/* ===== 顶部导航 ===== */
+.topbar{
+  position:fixed;top:0;left:0;right:0;z-index:50;
+  background:rgba(23,18,12,.92);
+  border-bottom:1px solid rgba(212,198,166,.14);
+  backdrop-filter:none;
+}
+.topbar-inner{
+  max-width:1240px;margin:0 auto;
+  display:flex;align-items:center;gap:18px;
+  padding:10px var(--pad-m);
+}
+.wordmark{
+  font-weight:900;font-size:17px;letter-spacing:.06em;
+  color:var(--body-dark);white-space:nowrap;
+}
+.wordmark .mark-red{color:var(--red);}
+.topnav{
+  display:flex;gap:2px;overflow-x:auto;
+  scrollbar-width:none;flex:1;
+}
+.topnav::-webkit-scrollbar{display:none;}
+.topnav a{
+  font-family:var(--sans);font-size:14px;color:#CFC4A6;
+  padding:12px 11px;min-height:44px;display:flex;align-items:center;
+  white-space:nowrap;border-radius:2px;
+  transition:color .2s,background .2s;
+}
+.topnav a:hover{color:var(--gold-soft);background:rgba(212,198,166,.08);}
+.topnav a.active{color:var(--gold-soft);}
+
+/* ===== 通用布局 ===== */
+.section{position:relative;}
+.shell{max-width:1240px;margin:0 auto;padding:0 var(--pad-m);}
+.kicker{
+  font-family:var(--sans);font-size:14px;letter-spacing:.22em;
+  color:var(--gold);margin-bottom:14px;
+  display:flex;align-items:center;gap:12px;
+}
+.kicker::before{
+  content:"";width:26px;height:3px;background:currentColor;flex:none;
+}
+.h2{
+  font-size:clamp(28px,4.4vw,48px);font-weight:900;
+  line-height:1.2;letter-spacing:.02em;margin-bottom:18px;
+}
+.h2-sub{font-size:clamp(15px,1.6vw,17px);color:#4A534F;margin-bottom:34px;}
+.lede{
+  font-size:clamp(17px,2vw,20px);line-height:1.75;
+  max-width:56ch;
+}
+.body-copy{font-size:16.5px;line-height:1.8;max-width:62ch;}
+.body-copy + .body-copy{margin-top:14px;}
+
+/* ===== 入场动效 ===== */
+.rv{opacity:0;transform:translateY(26px);transition:opacity .7s cubic-bezier(.16,1,.3,1),transform .7s cubic-bezier(.16,1,.3,1);}
+.rv.in{opacity:1;transform:none;}
+.rv.d1{transition-delay:.08s;}
+.rv.d2{transition-delay:.16s;}
+.rv.d3{transition-delay:.24s;}
+.rv.d4{transition-delay:.32s;}
+
+/* 唱词/金句逐行错落（父块进入后子行依次浮现） */
+.stagger > *{
+  opacity:0;transform:translateY(14px);
+  transition:opacity .6s cubic-bezier(.16,1,.3,1),transform .6s cubic-bezier(.16,1,.3,1);
+}
+.stagger.in > *{opacity:1;transform:none;}
+.stagger.in > *:nth-child(2){transition-delay:.09s;}
+.stagger.in > *:nth-child(3){transition-delay:.18s;}
+.stagger.in > *:nth-child(4){transition-delay:.27s;}
+.stagger.in > *:nth-child(5){transition-delay:.36s;}
+.stagger.in > *:nth-child(6){transition-delay:.45s;}
+.stagger.in > *:nth-child(7){transition-delay:.54s;}
+.stagger.in > *:nth-child(8){transition-delay:.63s;}
+
+/* Hero 标题：模糊聚焦 + 上浮 */
+.hero-title{
+  animation:hero-title-in 1.15s cubic-bezier(.16,1,.3,1) .05s both;
+}
+@keyframes hero-title-in{
+  from{opacity:0;transform:translateY(30px);filter:blur(12px);}
+  to{opacity:1;transform:none;filter:blur(0);}
+}
+/* Hero 肖像：缓入 + 极慢漂移 */
+.hero-fig{animation:hero-fig-in 1.3s cubic-bezier(.16,1,.3,1) .2s both;}
+@keyframes hero-fig-in{
+  from{opacity:0;transform:translateY(22px) scale(1.015);}
+  to{opacity:1;transform:none;}
+}
+
+/* 照片极慢漂移（电影感） */
+.zoom{overflow:hidden;}
+.zoom img{transform:scale(1.055);transition:transform 14s cubic-bezier(.22,.61,.36,1);}
+.zoom.in img{transform:scale(1);}
+
+/* 幕头片头式标题（居中 · 衬字为序） */
+.act-headline{text-align:center;padding-top:30px;}
+.act-eyebrow{font-family:var(--sans);font-size:13px;letter-spacing:.26em;margin-bottom:16px;}
+.act-title{
+  font-size:clamp(38px,6.2vw,72px);font-weight:900;
+  line-height:1.06;letter-spacing:.05em;margin-bottom:12px;
+  opacity:0;transform:translateY(16px);filter:blur(5px);
+  transition:opacity .85s cubic-bezier(.16,1,.3,1),transform .85s cubic-bezier(.16,1,.3,1),filter .85s cubic-bezier(.16,1,.3,1);
+  transition-delay:.08s;
+}
+.act-headline.in .act-title{opacity:1;transform:none;filter:blur(0);}
+.act-years{
+  font-family:var(--sans);font-size:15px;letter-spacing:.1em;margin-bottom:22px;
+}
+
+/* ===== Hero ===== */
+.hero{
+  min-height:100vh;display:flex;align-items:center;
+  background:var(--ink);
+  padding:clamp(96px,14vh,140px) 0 60px;
+  overflow:hidden;
+}
+/* Hero 背景年份衬字 */
+.hero::before{
+  content:"1946";
+  position:absolute;right:clamp(10px,3vw,50px);bottom:8px;
+  font-family:var(--sans);font-weight:500;
+  font-size:clamp(64px,11vw,130px);letter-spacing:.12em;
+  color:rgba(239,230,210,.045);
+  pointer-events:none;user-select:none;
+}
+.hero-grid{
+  position:relative;z-index:1;
+  display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(24px,5vw,72px);
+  align-items:center;
+}
+.hero-eyebrow{
+  font-family:var(--sans);font-size:clamp(12px,1.3vw,14px);
+  letter-spacing:.24em;color:var(--gold);margin-bottom:22px;
+}
+.hero-title{
+  font-size:clamp(48px,10.5vw,128px);font-weight:900;
+  line-height:1.02;letter-spacing:.05em;color:var(--body-dark);
+  margin-bottom:12px;
+}
+.hero-title .zh-red{color:var(--red);}
+.hero-genre{
+  font-size:clamp(16px,2vw,22px);font-weight:700;color:var(--gold-soft);
+  letter-spacing:.14em;margin-bottom:8px;
+}
+.hero-tag{
+  font-family:var(--sans);font-size:clamp(13px,1.5vw,15px);
+  color:#B7AA8C;letter-spacing:.05em;margin-bottom:26px;
+}
+.hero-when{
+  display:flex;flex-wrap:wrap;gap:10px 26px;
+  font-family:var(--sans);font-size:clamp(13px,1.4vw,15px);color:#CFC4A6;
+  margin-bottom:34px;
+}
+.hero-when b{color:var(--body-dark);font-weight:500;}
+.hero-cta{
+  display:inline-flex;align-items:center;justify-content:center;
+  min-height:52px;padding:0 30px;
+  background:var(--red);color:#fff;
+  font-family:var(--sans);font-size:15px;letter-spacing:.14em;
+  border-radius:2px;transition:background .25s,transform .25s;
+}
+.hero-cta:hover{background:var(--red-dark);transform:translateY(-1px);}
+.hero-fig{position:relative;}
+.hero-fig .portrait-frame{
+  position:relative;
+  background:#EAE1CC;
+  padding:16px 16px 12px;
+}
+.hero-fig img{
+  width:100%;aspect-ratio:3/4;object-fit:cover;
+}
+.hero-fig .fig-cap{
+  font-family:var(--sans);font-size:12.5px;color:#6E6350;
+  padding-top:11px;display:flex;justify-content:space-between;gap:12px;
+}
+
+/* ===== 剧情简介（纸） ===== */
+.synopsis{background:var(--paper);color:var(--body);}
+.synopsis .shell{padding-top:var(--pad-l);padding-bottom:var(--pad-l);}
+.synopsis .kicker{color:var(--red-dark);}
+.synopsis .lede{max-width:74ch;}
+.synopsis .lede em{font-style:normal;color:var(--red-dark);font-weight:700;}
+.synopsis .lede + .lede{margin-top:22px;}
+
+/* ===== 人物表 ===== */
+.cast{background:var(--paper);color:var(--body);}
+.cast .shell{padding-bottom:var(--pad-l);}
+.cast-grid{
+  display:grid;grid-template-columns:1fr 1.55fr;gap:clamp(24px,4vw,56px);
+  align-items:start;margin-bottom:44px;
+}
+.cast-photos{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.cast-photo{position:relative;overflow:hidden;background:#EAE1CC;padding:10px 10px 8px;}
+.cast-photo img{width:100%;aspect-ratio:3/4;object-fit:cover;filter:grayscale(1) contrast(1.07) sepia(.13) brightness(.99);}
+.cast-photo .cap{
+  font-family:var(--sans);font-size:12.5px;color:#6E6350;
+  padding:9px 2px 0;line-height:1.55;
+}
+.cast-intro p{font-size:16.5px;line-height:1.8;max-width:58ch;}
+.cast-table{width:100%;border-collapse:collapse;font-size:15px;}
+.cast-table th{
+  font-family:var(--sans);font-weight:500;font-size:13px;letter-spacing:.08em;
+  color:#6E6350;text-align:left;
+  padding:10px 12px;border-bottom:2px solid var(--body);white-space:nowrap;
+}
+.cast-table td{
+  padding:11px 12px;border-bottom:1px solid rgba(36,27,16,.22);
+  vertical-align:top;
+}
+.cast-table tr:last-child td{border-bottom:none;}
+.cast-table .n{font-weight:700;white-space:nowrap;}
+.cast-table .role{color:#4A4235;font-size:14px;}
+
+/* ===== 幕结构 ===== */
+.act-head{position:relative;padding-top:var(--pad-l);padding-bottom:20px;}
+/* 幕头巨型衬字（水墨描边，版式元素） */
+.act-head::before{
+  content:attr(data-num);
+  position:absolute;top:-36px;right:0;
+  font-size:clamp(130px,21vw,250px);font-weight:900;line-height:1;
+  color:transparent;
+  -webkit-text-stroke:1.5px rgba(36,27,16,.13);
+  pointer-events:none;user-select:none;z-index:0;
+}
+.act-head > *{position:relative;z-index:1;}
+.act-dead .act-head::before{-webkit-text-stroke-color:rgba(228,224,210,.11);}
+.act-burn .act-head::before{-webkit-text-stroke-color:rgba(239,230,210,.09);}
+.act-eyebrow{
+  font-family:var(--sans);font-size:13px;letter-spacing:.26em;margin-bottom:16px;
+}
+.act-title{
+  font-size:clamp(38px,6.2vw,72px);font-weight:900;
+  line-height:1.06;letter-spacing:.05em;margin-bottom:12px;
+  opacity:0;transform:translateY(16px);filter:blur(5px);
+  transition:opacity .85s cubic-bezier(.16,1,.3,1),transform .85s cubic-bezier(.16,1,.3,1),filter .85s cubic-bezier(.16,1,.3,1);
+  transition-delay:.08s;
+}
+.act-headline.in .act-title{opacity:1;transform:none;filter:blur(0);}
+.act-years{
+  font-family:var(--sans);font-size:15px;letter-spacing:.1em;margin-bottom:22px;
+}
+
+/* 场景 */
+.scene{padding:46px 0;}
+.scene + .scene{border-top:none;}
+.scene-idx{
+  font-family:var(--sans);font-size:13px;letter-spacing:.2em;margin-bottom:8px;
+}
+.scene-name{
+  font-size:clamp(22px,3vw,32px);font-weight:900;line-height:1.25;margin-bottom:6px;
+  letter-spacing:.03em;
+}
+.scene-place{
+  font-family:var(--sans);font-size:14px;letter-spacing:.06em;margin-bottom:20px;
+}
+.scene-body p{font-size:16.5px;line-height:1.85;max-width:60ch;}
+.scene-quote{
+  margin:26px 0 0;
+  padding:22px 26px;
+  border-left:4px solid var(--gold);
+  font-size:clamp(17px,2.2vw,21px);font-weight:700;line-height:1.7;
+}
+.scene-lyric{
+  margin:26px 0 0;
+  padding:26px 28px;
+  border-left:4px solid var(--red);
+}
+.scene-lyric .ly-name{
+  font-family:var(--sans);font-size:13px;letter-spacing:.18em;margin-bottom:14px;
+}
+.scene-lyric p{font-weight:600;line-height:1.85;font-size:16.5px;}
+.scene-lyric p + p{margin-top:6px;}
+.scene-lyric .rhyme{
+  font-family:var(--sans);font-weight:400;font-size:12.5px;letter-spacing:.1em;
+  margin-top:12px;opacity:.75;
+}
+
+/* ===== 第一幕 红烛（纸底） ===== */
+.act-red{background:var(--paper);color:var(--body);}
+.act-red .act-eyebrow{color:var(--red-dark);}
+.act-red .scene-idx{color:#8A7A5C;}
+.act-red .scene-quote{background:var(--paper-dim);}
+.act-red .scene-lyric{background:var(--paper-dim);}
+.act-red .scene-lyric .ly-name{color:var(--red-dark);}
+.act-red .scene-place{color:#6E6350;}
+.act-red .scene-quote{color:var(--red-dark);border-left-color:var(--gold);}
+.act-red .scene-lyric{border-left-color:var(--red-dark);}
+
+/* ===== 第二幕 死水（灰蓝） ===== */
+.act-dead{background:#4A534F;color:#E4E0D2;}
+.act-dead .act-eyebrow{color:var(--gold-soft);}
+.act-dead .scene-idx{color:#AEB7AE;}
+.act-dead .scene-place{color:#B9C0B8;}
+.act-dead .scene-body p{color:#EAE6D8;}
+.act-dead .scene-quote{background:rgba(23,18,12,.34);color:var(--gold-soft);border-left-color:var(--gold-soft);}
+.act-dead .scene-lyric{background:rgba(23,18,12,.30);border-left-color:var(--gold-soft);}
+.act-dead .scene-lyric .ly-name{color:var(--gold-soft);}
+.act-dead .scene-lyric .rhyme{color:#C9CEC6;}
+.act-dead .h2-sub{color:#AEB7AE;}
+
+/* ===== 第三幕 燃烧（墨底转朱红） ===== */
+.act-burn{background:var(--ink);color:var(--body-dark);}
+.act-burn .act-eyebrow{color:var(--red);}
+.act-burn .act-years{color:#B7AA8C;}
+.act-burn .scene-idx{color:#8F8370;}
+.act-burn .scene-place{color:#B7AA8C;}
+.act-burn .scene-quote{background:var(--ink-soft);color:var(--gold-soft);font-size:clamp(18px,2.4vw,23px);border-left-color:var(--red);}
+.act-burn .scene-quote .big-red{color:#E2B4B8;}
+.act-burn .scene-lyric{background:rgba(179,32,46,.16);}
+.act-burn .scene-lyric .ly-name{color:var(--gold);}
+.act-burn .scene-quote .speech{font-weight:700;}
+.act-burn .scene-quote .speech-line{display:block;margin-top:12px;font-weight:900;font-size:1.08em;color:var(--gold-soft);}
+
+/* ===== 尾声 ===== */
+.epilogue{background:var(--paper);color:var(--body);}
+.epilogue .shell{padding-top:var(--pad-l);padding-bottom:var(--pad-l);}
+.epilogue .kicker{color:var(--red-dark);}
+.epi-grid{
+  display:grid;grid-template-columns:1fr 1.2fr;gap:clamp(24px,4vw,56px);
+  align-items:start;
+}
+.epi-photos{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.epi-photo{overflow:hidden;background:#EAE1CC;padding:10px 10px 8px;}
+.epi-photo img{width:100%;aspect-ratio:4/3;object-fit:cover;}
+.epi-photo .cap{font-family:var(--sans);font-size:12.5px;color:#6E6350;padding:9px 2px 0;line-height:1.55;}
+.epi-lyric{margin-top:30px;padding:26px 28px;background:var(--paper-dim);border-left:4px solid var(--red-dark);}
+.epi-lyric .ly-name{font-family:var(--sans);font-size:13px;letter-spacing:.18em;color:var(--red-dark);margin-bottom:14px;}
+.epi-lyric p{font-weight:600;line-height:1.85;font-size:16.5px;}
+.epi-lyric p + p{margin-top:6px;}
+.epi-lyric .rhyme{font-family:var(--sans);font-weight:400;font-size:12.5px;margin-top:12px;opacity:.75;}
+.epi-voice{margin-top:24px;font-size:16.5px;line-height:1.85;max-width:56ch;}
+.epi-voice b{color:var(--red-dark);}
+
+/* ===== 唱段精选 ===== */
+.songs{background:var(--paper);color:var(--body);}
+.songs .shell{padding-top:var(--pad-l);padding-bottom:var(--pad-l);}
+.songs .kicker{color:var(--red-dark);}
+.song{
+  display:grid;grid-template-columns:minmax(120px,1fr) 2.4fr;gap:clamp(16px,3vw,40px);
+  padding:40px 22px;margin:0 -22px;border-radius:2px;
+  transition:background .3s ease;
+}
+.song:hover{background:rgba(36,27,16,.055);}
+.song + .song{border-top:2px solid rgba(36,27,16,.28);}
+.song-side .song-name{font-size:clamp(22px,2.8vw,30px);font-weight:900;line-height:1.3;margin-bottom:6px;}
+.song-side .song-form{font-family:var(--sans);font-size:13px;letter-spacing:.14em;color:var(--red-dark);}
+.song-side .song-scene{font-family:var(--sans);font-size:13px;color:#6E6350;margin-top:8px;}
+.song-text{padding-left:20px;border-left:4px solid var(--red-dark);}
+.song-text p{font-size:16.5px;line-height:1.9;font-weight:600;}
+.song-text p + p{margin-top:5px;}
+.song-text .quote{font-weight:400;color:#4A4235;}
+.song-text .rhyme{font-family:var(--sans);font-weight:400;font-size:12.5px;color:#8A7A5C;margin-top:12px;}
+
+/* ===== 制作信息 ===== */
+.production{background:var(--ink);color:var(--body-dark);}
+.production .shell{padding-top:var(--pad-l);padding-bottom:var(--pad-l);}
+.prod-grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:clamp(24px,4vw,48px);
+}
+.prod-item .prod-label{
+  font-family:var(--sans);font-size:13px;letter-spacing:.22em;color:var(--gold);margin-bottom:10px;
+}
+.prod-item .prod-val{font-size:clamp(18px,2vw,22px);font-weight:700;line-height:1.5;}
+.prod-item .prod-note{font-family:var(--sans);font-size:13.5px;color:#A99B7C;margin-top:8px;line-height:1.7;}
+
+/* ===== 页脚（片尾字幕） ===== */
+.footer{background:#110D08;color:#A99B7C;border-top:1px solid rgba(212,198,166,.12);}
+.footer .shell{padding:clamp(56px,8vw,88px) var(--pad-m) 48px;text-align:center;}
+.footer .f-title{font-size:clamp(34px,5.4vw,54px);font-weight:900;letter-spacing:.14em;color:#CFC4A6;margin-bottom:14px;}
+.footer .f-title .zh-red{color:var(--red);}
+.footer .f-sub{font-family:var(--sans);font-size:13px;letter-spacing:.32em;color:var(--gold);margin-bottom:10px;}
+.footer .f-creds{font-family:var(--sans);font-size:13.5px;color:#A99B7C;margin-bottom:44px;}
+.footer .f-creds b{color:#CFC4A6;font-weight:500;}
+.footer .f-cols{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:34px;
+  text-align:left;max-width:1040px;margin:0 auto 40px;
+  padding-top:34px;border-top:1px solid rgba(212,198,166,.14);
+}
+.footer h3{
+  font-family:var(--sans);font-size:13px;letter-spacing:.2em;color:var(--gold);
+  margin:0 0 10px;
+}
+.footer ul{list-style:none;font-size:13.5px;line-height:1.9;}
+.footer li{color:#8C7F64;}
+.footer .f-note{margin:30px auto 0;font-size:12.5px;line-height:1.9;color:#6E6350;max-width:70ch;}
+
+/* ===== 响应式 ===== */
+@media (max-width:860px){
+  .hero-grid{grid-template-columns:1fr;gap:40px;}
+  .hero-fig{max-width:420px;margin:0 auto;}
+  .cast-grid{grid-template-columns:1fr;}
+  .epi-grid{grid-template-columns:1fr;}
+  .song{grid-template-columns:1fr;padding:34px 0;}
+}
+@media (max-width:560px){
+  .topbar-inner{flex-wrap:wrap;row-gap:2px;}
+  .topnav{order:3;width:100%;}
+  .scene-quote,.scene-lyric,.epi-lyric{padding:20px 20px;}
+  .scene{padding:38px 0;}
+  .act-head::before{font-size:clamp(96px,24vw,130px);top:-24px;opacity:.85;}
+  .hero::before{display:none;}
+}
+
+/* ===== 滚动进度条 ===== */
+#progress{
+  position:fixed;top:0;left:0;right:0;height:2px;z-index:60;
+  background:var(--red);
+  transform:scaleX(0);transform-origin:left center;
+}
+
+/* ===== 减弱动效 ===== */
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto;}
+  .rv{opacity:1;transform:none;transition:none;}
+  .stagger .sl{opacity:1;transform:none;transition:none;}
+  .zoom img{transform:none;transition:none;}
+  .hero-title,.hero-fig{animation:none;opacity:1;filter:none;}
+  .act-title{opacity:1;transform:none;filter:none;transition:none;}
+  #progress{display:none;}}
+</style>
+</head>
+<body>
+
+<div id="progress" aria-hidden="true"></div>
+
+<!-- ===== 导航 ===== -->
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="wordmark" href="#hero">闻一多<span class="mark-red">先生</span></a>
+    <nav class="topnav" aria-label="章节导航">
+      <a href="#synopsis">剧情</a>
+      <a href="#cast">人物</a>
+      <a href="#prologue">序幕</a>
+      <a href="#act1">第一幕·红烛</a>
+      <a href="#act2">第二幕·死水</a>
+      <a href="#act3">第三幕·燃烧</a>
+      <a href="#epilogue">尾声</a>
+      <a href="#songs">唱段</a>
+      <a href="#production">制作</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<!-- ===== Hero ===== -->
+<section class="hero" id="hero">
+  <div class="shell">
+    <div class="hero-grid">
+      <div>
+        <p class="hero-eyebrow rv">革命历史题材 · 民族歌剧 · 云南省“讲好五个故事”之③</p>
+        <h1 class="hero-title">闻一多<span class="zh-red">先生</span></h1>
+        <p class="hero-genre rv d2">民 族 歌 剧</p>
+        <p class="hero-tag rv d2">“闻一多发表‘最后的演讲’、舍生取义的故事”</p>
+        <p class="hero-when rv d3">
+          <span><b>时间</b>　1946年7月15日</span>
+          <span><b>地点</b>　昆明 · 至公堂</span>
+          <span><b>规模</b>　三幕八场 · 约120分钟</span>
+        </p>
+        <a class="hero-cta rv d4" href="#synopsis">开始阅读</a>
+      </div>
+      <figure class="hero-fig">
+        <div class="portrait-frame">
+          <img class="photo-arch" src="https://aka.doubaocdn.com/s/2cnmPBC1Sv" alt="闻一多先生历史肖像：圆框眼镜，围巾，深色长衫">
+          <figcaption class="fig-cap">
+            <span>闻一多先生 · 历史档案照片</span>
+            <span>1899—1946</span>
+          </figcaption>
+        </div>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 剧情简介 ===== -->
+<section class="section synopsis" id="synopsis">
+  <div class="shell">
+    <p class="kicker rv">剧情简介</p>
+    <p class="lede rv d1">
+      1946年7月15日，昆明。民盟中央执行委员、西南联大教授闻一多，在云南大学至公堂举行的李公朴追悼大会上拍案而起，即席发表《最后一次讲演》，痛斥国民党特务的卑劣暗杀，宣告“我们随时像李先生一样，前脚跨出大门，后脚就不准备再跨进大门”。当日傍晚，他在西仓坡返家途中遭特务伏击，身中十余弹，壮烈牺牲；长子闻立鹤扑身护父，身中五枪。
+    </p>
+    <p class="lede rv d2">
+      全剧以此为轴，倒叙这位“伟大的爱国主义者、民主革命战士”的一生：清华园里剪辫明志、连夜抄录《满江红》、起草《告同胞书》的五四青年；芝加哥风雪夜里点燃《红烛》、写下《七子之歌》的海外游子；归国后面对军阀混战，写下《死水》的诗人；西南联大茅屋中跑警报、自号“何妨一下楼主人”注《楚辞》《周易》、读《新民主主义论》完成思想转向的书斋学者——直到一二·一惨案中为四烈士书挽词“民不畏死，奈何以死惧之”、拄杖走在出殡行列最前头；民盟云南支部招待会上公开响应中共“民主团结、和平建国”的号召；李公朴在青云街学院坡遇刺后，他在病房外守到天明，通电全国，为《学生报》题词“反动派！你看见一个倒下去，可也看得见千百个继起来！”
+    </p>
+    <p class="lede rv d3">
+      <em>一支红烛，从点燃到燃尽。</em>主题：知识分子的“说”与“做”必须统一——书斋救不了中国，笔要变成枪，人要走进人民；正义是杀不完的，真理永远存在，红烛精神在新一代手中继续燃烧。
+    </p>
+  </div>
+</section>
+
+<!-- ===== 人物表 ===== -->
+<section class="section cast" id="cast">
+  <div class="shell">
+    <p class="kicker rv">人物表</p>
+    <h2 class="h2 rv d1">至公堂上的面孔</h2>
+    <p class="h2-sub rv d2">十二个人物，一支红烛；真实英烈与创作群像同台。</p>
+    <div class="cast-grid">
+      <div class="cast-photos">
+        <figure class="cast-photo rv d2">
+          <img src="https://aka.doubaocdn.com/s/2cnmPBC1Sv" alt="闻一多肖像">
+          <figcaption class="cap">闻一多 · 诗人、学者、西南联大教授（历史档案照片）</figcaption>
+        </figure>
+        <figure class="cast-photo rv d3">
+          <img src="https://aka.doubaocdn.com/s/UwltUYcOPz" alt="李公朴肖像">
+          <figcaption class="cap">李公朴 · 民盟中央执行委员、社会教育家（历史档案照片）</figcaption>
+        </figure>
+      </div>
+      <div class="cast-intro rv d2">
+        <p>主角闻一多（男中音，47岁）贯穿全剧；李公朴（男中音，44岁）在第二幕遭暗杀——这是历史真实。高贞、闻立鹤、吴晗与三名学生构成他的家庭与青年阵线；主持人、特务头目站在场的两端。真实人物一律正面塑造，无戏说、无绰号。</p>
+      </div>
+    </div>
+    <div class="rv d2">
+      <table class="cast-table">
+        <thead>
+          <tr><th>姓名</th><th>身份 / 职务</th><th>声部 / 行当</th><th>年龄</th><th>备注</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="n">闻一多</td><td>诗人、学者，西南联大教授，民盟中央执行委员、《民主周刊》社社长</td><td>男中音</td><td>47</td><td>主角，贯穿全剧</td></tr>
+          <tr><td class="n">高贞</td><td>闻一多夫人</td><td>女中音</td><td>—</td><td>担忧之爱与最终成全</td></tr>
+          <tr><td class="n">闻立鹤</td><td>闻一多长子，西南联大学生</td><td>男高音</td><td>19</td><td>第三幕陪伴父亲，护父中弹</td></tr>
+          <tr><td class="n">李公朴</td><td>民盟中央执行委员、社会教育家，“七君子”之一</td><td>男中音</td><td>44</td><td>第二幕核心，遭暗杀（历史真实）</td></tr>
+          <tr><td class="n">张曼筠</td><td>李公朴夫人</td><td>女高音</td><td>—</td><td>场六医院守候（历史真实）</td></tr>
+          <tr><td class="n">吴晗</td><td>西南联大教授，民盟盟员</td><td>男高音</td><td>37</td><td>引介入盟，民主战友</td></tr>
+          <tr><td class="n">学生甲</td><td>西南联大学生，激进</td><td>男高音</td><td>20余</td><td>民主运动骨干</td></tr>
+          <tr><td class="n">学生乙</td><td>西南联大女学生</td><td>女高音</td><td>20余</td><td>一二·一后成长</td></tr>
+          <tr><td class="n">学生丙</td><td>西南联大学生，起初倾向“读书救国”</td><td>男高音</td><td>20余</td><td>思想转变线</td></tr>
+          <tr><td class="n">主持人</td><td>李公朴追悼大会主持人</td><td>男低音</td><td>—</td><td>序幕与第三幕场七</td></tr>
+          <tr><td class="n">特务头目</td><td>国民党特务（不具名）</td><td>男低音</td><td>—</td><td>对立面，象征黑暗势力</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 序幕 ===== -->
+<section class="section act-burn" id="prologue">
+  <div class="shell">
+    <div class="act-head" data-num="序">
+      <div class="act-headline rv">
+        <div>
+          <p class="act-eyebrow">序幕 · 1946年7月15日上午</p>
+          <h2 class="act-title">至公堂</h2>
+          <p class="act-years">云南大学至公堂 · 李公朴追悼大会</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="scene">
+      <p class="scene-idx rv">【场景】</p>
+      <p class="scene-body rv d1">黑纱、白花、挽联。会场肃穆，空气沉闷得像一块铅。灵前，张曼筠夫人一身素衣，垂首而立。人群里，几个戴黑礼帽的人影散坐各处，目光冷冷地扫着前排。</p>
+      <blockquote class="scene-quote rv d2">
+        白花落满至公堂，<br>
+        先生一去，山河都沉默。<br>
+        昆明记得你走过的路，<br>
+        你未说尽的话，我们来接着说。
+        <span class="rhyme" style="font-family:var(--sans);font-weight:400;font-size:12.5px;margin-top:10px;display:block;opacity:.7">《合唱 · 挽歌》 · 梭坡（二四押）</span>
+      </blockquote>
+      <div class="scene-lyric stagger">
+        <p class="ly-name">《内心咏叹调 · 他还在等我》 · 发花（二四押）</p>
+        <p>他还在等我，<br>等我说完那句没说完的话。</p>
+        <p>我若沉默，谁替他开口？<br>我若退后，谁挡在台前？</p>
+      </div>
+      <p class="scene-body rv d2" style="margin-top:24px">
+        主持人低声劝止：“闻先生，外头的情形您也知道。为了您的安全，今天，请您不要发言。”闻一多沉默着，指节微微发白，望向台上李公朴的遗像——遗像里，李先生戴着眼镜，微微笑着，像还在等他说话。
+      </p>
+      <p class="scene-body rv d3" style="margin-top:16px">
+        话未落，闻一多猛地站了起来。满场哗然，戴黑礼帽的人影同时绷直了身子。
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 第一幕 红烛 ===== -->
+<section class="section act-red" id="act1">
+  <div class="shell">
+    <div class="act-head" data-num="壹">
+      <div class="act-headline rv">
+        <div>
+          <p class="act-eyebrow">第一幕</p>
+          <h2 class="act-title">红 烛</h2>
+          <p class="act-years">1919 — 1943 · 清华园 · 芝加哥 · 西南联大</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="scene">
+      <p class="scene-idx rv">第一场 · 1919年5月</p>
+      <h3 class="scene-name rv d1">清华园</h3>
+      <p class="scene-place rv d1">北京清华园 · 学生宿舍 · 油灯下，满地纸团</p>
+      <p class="scene-body rv d2">青年闻一多伏案疾书，一遍遍抄写岳飞的《满江红》。窗外夜色沉沉，远处传来游行归来的喧嚷。“我们是学生，学生的本分是读书”——同学这样劝他。他放下笔，走到窗前：“我父亲是秀才，一辈子教我‘修身齐家’。可如今，家在哪里？国在哪里？我要管。没有人管，我就管。”</p>
+      <div class="scene-lyric stagger">
+        <p class="ly-name">《咏叹调 · 满江红》 · 引《满江红》原词 · 乜斜</p>
+        <p>怒发冲冠，凭阑处、潇潇雨歇。<br>抬望眼、仰天长啸，壮怀激烈。</p>
+        <p>三十功名尘与土，八千里路云和月。<br>莫等闲、白了少年头，空悲切！</p>
+      </div>
+      <blockquote class="scene-quote rv d2">
+        他抓起剪刀，一把剪掉脑后长辫。<br>辫子落在地上，像一截死去的时代。
+        <span class="rhyme" style="font-family:var(--sans);font-weight:400;font-size:12.5px;margin-top:10px;display:block;opacity:.7">《三重唱 · 剪辫》 · 江阳</span>
+      </blockquote>
+      <p class="scene-body rv d2" style="margin-top:24px">学生丙、学生甲先后解下辫子：“给我也剪了吧。”“还有我。”三条辫子落在地上，三人并立窗前，晨光初透。“同胞们！国之不存，学将何用？书斋救不了中国——救国，就在此刻！”</p>
+    </div>
+
+    <div class="scene">
+      <p class="scene-idx rv">第二场 · 1922年冬—1925年春</p>
+      <h3 class="scene-name rv d1">芝加哥</h3>
+      <p class="scene-place rv d1">美国芝加哥 · 风雪夜 · 孤灯 · 墙上钉着中国地图</p>
+      <p class="scene-body rv d2">画外音里，同学劝他学实业：“诗？诗能挡得住洋枪洋炮吗？”他对着地图自语，声音低而执拗：“诗挡不住枪炮。可总得有人，先记住故乡的样子——要是连故乡都忘了，赢了仗，又赢给谁看？”他拨了拨烛芯，烛火一跳，映着地图上那片山河。</p>
+      <div class="scene-lyric stagger">
+        <p class="ly-name">《咏叹调 · 红烛》 · 一七</p>
+        <p>一支红烛，烛泪落地，<br>照见故国，山河万里。</p>
+        <p>你燃自己，不问归期，<br>我拿什么，还你？</p>
+        <p class="quote" style="font-weight:400;margin-top:10px;color:#4A4235">红烛啊！这样红的烛！<br>诗人啊！吐出你的心来比比，可是一般颜色？<br>（引《红烛》原诗）</p>
+      </div>
+      <blockquote class="scene-quote rv d2">
+        你可知Macau不是我真姓？<br>我离开你太久了，母亲！<br>（引《七子之歌 · 澳门》原诗）
+      </blockquote>
+      <p class="scene-body rv d3" style="margin-top:24px">美国同学问：“闻，你的诗很美。可是你的国家，为什么在打仗？”他答：“正因为我的国家在打仗，我的诗才必须美。美，是留给将来的人看的。”笔落，窗外风雪更急。他把《红烛》清样合上，推到一边：“该回去了。诗写够了，回去做事。”</p>
+      <div class="scene-lyric stagger" style="margin-top:26px">
+        <p class="ly-name">《咏叹调 · 归舟》 · 江阳</p>
+        <p>太平洋的浪，涌向东方，<br>船头朝东，对着故乡。</p>
+        <p>别了芝加哥的雪，别了异邦的窗，<br>我回来了，带着一肚子诗与伤。</p>
+      </div>
+    </div>
+
+    <div class="scene">
+      <p class="scene-idx rv">第三场 · 1943年冬</p>
+      <h3 class="scene-name rv d1">西南联大</h3>
+      <p class="scene-place rv d1">昆明 · 茅草屋校舍 · 一灯如豆 · 窗外滇池的风</p>
+      <div class="zoom rv d2" style="margin-bottom:26px;max-width:760px">
+        <img class="photo-arch" src="https://aka.doubaocdn.com/s/6BWmLmEXVs" alt="西南联大校舍老照片：茅草顶与瓦顶校舍错落">
+        <p style="font-family:var(--sans);font-size:12.5px;color:#7A6E55;padding-top:8px">西南联大校舍（西南联大博物馆图，历史照片）</p>
+      </div>
+      <p class="scene-body rv d2">警报声骤然响起，师生们从山坡跑回来。闻一多护着一摞书稿，最后一个进门。学生指着防空洞口：“您看，外头还有学生借着亮在抄讲义。外头的炮火，挡不住里头的书声。”他沉默良久：“书声是书声。可光有书声，挡不住炮火。学生抄完讲义，还得有人，替他们去争一个不用跑警报的中国。”</p>
+      <div class="scene-lyric stagger">
+        <p class="ly-name">《咏叹调 · 何妨一下楼》 · 中东</p>
+        <p>楼下的硝烟，一声紧一声，<br>楼上的书卷，堆了三年的灯。</p>
+        <p>楚辞注完，周易注完，掩卷惊怔——<br>再深的学问，也盖不住满城的风。</p>
+      </div>
+      <p class="scene-body rv d2" style="margin-top:24px">他白天讲课，夜里刻章——“手是两只，命是一条。刻章，养家；讲课，养国。都不误。”他摩挲着一方印：“你看这方印——‘何妨一下楼主人’。楼下炮火连天，楼上书声不断，我刻它，是提醒自己：楼，是暂时的。”</p>
+      <p class="scene-body rv d3" style="margin-top:16px">吴晗把一本书推到灯下：“你不是问‘书里有没有救国的法子’吗？——书里有。看你读的是谁的书。”雨夜读罢，天亮合书：“我读了半辈子书，自以为懂得什么叫中国。可这本书让我明白，中国不在书里，在四万万人的手里。书里没有答案，答案在楼下。”</p>
+      <blockquote class="scene-quote rv d3" style="margin-top:26px">
+        有一句话说出就是祸，<br>有一句话能点得着火。<br>别看五千年没有说破，<br>你猜得透火山的缄默？<br>突然晴天里一个霹雳，<br>爆一声：“咱们的中国！”<br>
+        <span class="rhyme" style="font-family:var(--sans);font-weight:400;font-size:12.5px;margin-top:10px;display:block;opacity:.7">《合唱 · 咱们的中国》 · 引《一句话》原诗 · 梭坡</span>
+      </blockquote>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 第二幕 死水 ===== -->
+<section class="section act-dead" id="act2">
+  <div class="shell">
+    <div class="act-head" data-num="贰">
+      <div class="act-headline rv">
+        <div>
+          <p class="act-eyebrow">第二幕</p>
+          <h2 class="act-title">死 水</h2>
+          <p class="act-years">1945年12月 — 1946年7月11日 · 一二·一 · 民盟招待会 · 李公朴遇刺</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="scene">
+      <p class="scene-idx rv">第四场 · 1945年12月</p>
+      <h3 class="scene-name rv d1">一二·一</h3>
+      <p class="scene-place rv d1">昆明街头 · 四烈士灵堂 · 挽联：“民不畏死，奈何以死惧之”</p>
+      <p class="scene-body rv d2">十二月一号，他们冲进学校，机枪对着学生扫。于再同学，才二十一岁；潘琰同学，怀里的讲义还没合上——四条人命倒在血泊里。灵前四幅遗像：于再、潘琰、李鲁连、张华昌。白花如雪。</p>
+      <div class="scene-lyric stagger">
+        <p class="ly-name">《安魂曲 · 四个名字》 · 江阳</p>
+        <p>于再、潘琰，李鲁连、张华昌，<br>四个名字，写在昆明的白花上。</p>
+        <p>你们躺下的地方，就是课堂，<br>学生读的，是你们用血写的文章。</p>
+      </div>
+      <p class="scene-body rv d2" style="margin-top:24px">他走进灵堂，提笔，墨落纸上：“民不畏死，奈何以死惧之。”笔锋如刀，字字入纸。“怎样？把他们做下的，一桩桩写下来，一行行说出去。杀，杀不完；说，说不断。先生们的枪，堵不住学生的嘴。”</p>
+      <p class="scene-body rv d3" style="margin-top:16px">出殡那天，他拄着手杖，走在队伍最前头。四烈士的灵柩缓缓行过，人群越走越多，汇成一条河。黑礼帽们远远跟着，不敢上前。</p>
+      <blockquote class="scene-quote rv d3" style="margin-top:26px">
+        书斋的门关了，我不再回望，<br>从今往后，笔是刀，字是枪，人是城墙。<br>
+        <span class="rhyme" style="font-family:var(--sans);font-weight:400;font-size:12.5px;margin-top:10px;display:block;opacity:.7">《咏叹调 · 出殡》 · 江阳</span>
+      </blockquote>
+    </div>
+
+    <div class="scene">
+      <p class="scene-idx rv">第五场 · 1946年6月29日</p>
+      <h3 class="scene-name rv d1">民盟云南支部招待会</h3>
+      <p class="scene-place rv d1">昆明某会堂 · 座中既有名流，也有神色不明的人</p>
+      <p class="scene-body rv d2">会前，吴晗拦住他：“军统那边，已经把您、公朴、还有我，都列了名单。今天的招待会，您那句‘响应中共、和平建国’，一旦当众说出口，就没有回头路了。”他整了整长衫：“我读书四十年，就等这一句说出口。没有回头路，才走得下去。”</p>
+      <blockquote class="scene-quote rv d3" style="margin-top:26px">
+        我闻一多的话，不会因为一句威胁，就少说半个字。<br>而且，我还要说很多句。
+      </blockquote>
+      <p class="scene-body rv d2" style="margin-top:24px">角落里的特务头目冷笑：“李公朴的下场，就是前车之鉴。”他缓缓转身，直视那人。记者问：“白纸黑字，您……不怕吗？”他淡然：“怕？怕就不说了。登吧。让昆明都看见，让全国都看见。”</p>
+      <div class="scene-lyric stagger" style="margin-top:26px">
+        <p class="ly-name">《二重唱 · 灯与路》 · 中东</p>
+        <p>（高贞）先生的讲台，不该染上血腥，<br>孩子的梦，不该听见枪声。</p>
+        <p>（闻一多）正因为我是教书先生，才更分明——<br>要是我不说，就对不起这支笔，<br>要是我不做，就对不起这场梦。</p>
+      </div>
+      <p class="scene-body rv d3" style="margin-top:24px">夜。闻宅。里屋的孩子被惊醒了，哭了一声。高贞回身去哄，轻声哼起摇篮曲：“睡吧，孩子，这一夜且忍耐，等天亮了，你爹就回来。”闻立鹤站在门口，声音年轻而坚定：“妈，爸说得对。我支持爸。”</p>
+      <div class="scene-lyric stagger" style="margin-top:26px">
+        <p class="ly-name">《宣叙调 · 守》 · 不押韵</p>
+        <p>你往前走，<br>我替你守着这盏灯。<br>灯不灭，<br>你就还有家。</p>
+      </div>
+    </div>
+
+    <div class="scene">
+      <p class="scene-idx rv">第六场 · 1946年7月11日夜</p>
+      <h3 class="scene-name rv d1">李公朴遇刺</h3>
+      <p class="scene-place rv d1">昆明 · 深夜 · 院门忽然被擂得山响</p>
+      <p class="scene-body rv d2">学生甲闯门而入，手里攥着一张号外：“李先生今晚陪李太太回家，在青云街学院坡，被特务的无声手枪打了！子弹从后腰打进去，从肚子穿出来——人已经送到云大医院，大夫说，恐怕不行了！”桌上的茶杯翻倒，滚烫的水泼了一桌。他站着，一动不动，像被定住了：“……公朴。”</p>
+      <p class="scene-body rv d3" style="margin-top:16px">医院走廊，白炽灯惨白。张曼筠泣不成声：“他倒下去的时候，还在喊——他说，‘我已经准备好了，为民主而死’……他说，他不怕……”</p>
+      <p class="scene-body rv d2" style="margin-top:16px">1946年7月12日凌晨五时，李公朴在云大医院逝世。走廊里，闻一多一夜未眠，脸色铁青，衬衫前襟被攥得发皱。天明，他提笔为《学生报》题词：“反动派！你看见一个倒下去，可也看得见千百个继起来！”字字力透纸背。</p>
+      <div class="scene-lyric stagger" style="margin-top:26px">
+        <p class="ly-name">《咏叹调 · 千百个继起来》 · 怀来（二四押）</p>
+        <p>公朴，你先走了，<br>走得这样快，这样明白。</p>
+        <p>你们看见一个倒下去，<br>可也看得见千百个继起来！</p>
+      </div>
+      <div class="scene-lyric stagger" style="margin-top:26px">
+        <p class="ly-name">《合唱 · 黎明前》 · 由求</p>
+        <p>黎明之前，总是最黑的时候，<br>我们掌着灯，谁也不肯先走。</p>
+        <p>黑暗再深，也拦不住白昼，<br>天要亮了，光明就在前头。</p>
+      </div>
+      <p class="scene-body rv d3" style="margin-top:24px">高贞求他不要去追悼会：“你这样，是要把自己熬干了呀！”他放下笔，久久沉默：“我不去，谁去？公朴倒下的地方，总得有人，替他把话说完。”闻立鹤捧着一碗热粥走进来：“爸，明天我陪你去。你倒下之前，我一直在。”</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 第三幕 燃烧 ===== -->
+<section class="section act-burn" id="act3">
+  <div class="shell">
+    <div class="act-head" data-num="叁">
+      <div class="act-headline rv">
+        <div>
+          <p class="act-eyebrow">第三幕 · 1946年7月15日</p>
+          <h2 class="act-title">燃 烧</h2>
+          <p class="act-years">至公堂 · 上午 —— 西仓坡 · 傍晚</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="scene">
+      <p class="scene-idx rv">第七场 · 上午</p>
+      <h3 class="scene-name rv d1">至公堂</h3>
+      <p class="scene-place rv d1">同序幕。黑纱、白花、挽联。黑礼帽们比那天更多，坐得更近，几乎把会场围了一圈</p>
+      <div class="zoom rv d2" style="margin-bottom:26px;max-width:760px">
+        <img class="photo-arch" src="https://aka.doubaocdn.com/s/bVT0fOXVqH" alt="云南大学至公堂1946年旧影：中式殿宇，台阶上有人物">
+        <p style="font-family:var(--sans);font-size:12.5px;color:#8F8370;padding-top:8px">云南大学至公堂（1946年旧影 · 闻黎明供图）</p>
+      </div>
+      <p class="scene-body rv d2">主持人近乎哀求：“您看到了，今天场子里，里里外外都是他们的人。为了您的安全，请您千万不要发言。您一开口，就再也收不回来了！”闻一多沉默，目光落在李公朴的遗像上。半晌，他缓缓站起——不是被逼，是自己站起来。满场屏息。黑礼帽们的手，同时按向腰间。</p>
+      <blockquote class="scene-quote stagger" style="margin-top:26px">
+        <span class="speech">“今天，这里有没有特务？你站出来！是好汉的站出来！”</span>
+        <span class="speech-line">“你们杀死一个李公朴，会有千百万个李公朴站起来！”</span>
+        <span class="speech-line">“正义是杀不完的，因为真理永远存在！”</span>
+        <span class="speech-line">“我们随时像李先生一样，前脚跨出大门，后脚就不准备再跨进大门！”</span>
+        <span class="rhyme" style="font-family:var(--sans);font-weight:400;font-size:12.5px;margin-top:14px;display:block;opacity:.7">《最后一次讲演》原文 · 民盟青岛市委刊本逐字核对</span>
+      </blockquote>
+      <div class="scene-lyric stagger" style="margin-top:26px">
+        <p class="ly-name">《咏叹调 · 最后的讲演》 · 怀来</p>
+        <p>你们杀死一个李公朴，<br>会有千百万个李公朴站起来！</p>
+        <p>你们将失去千百万的人民！<br>正义是杀不完的，因为真理永远存在！</p>
+      </div>
+      <p class="scene-body rv d2" style="margin-top:24px">“我们的光明就要出现了。我们看，光明就在我们眼前，而现在正是黎明之前那个最黑暗的时候。我们有力量打破这个黑暗，争到光明！”全场起立，掌声、哭声、呼喊声汇成一片。他立于台上，汗透长衫，目光灼灼如烛。</p>
+      <p class="scene-body rv d3" style="margin-top:16px">记者问：“您还有什么，要对他们说的吗？”他擦了一把汗，望着至公堂外的天光：“话，今天说尽了。剩下的，让历史去说。”父子并肩走出至公堂。阳光很好。</p>
+    </div>
+
+    <div class="scene">
+      <p class="scene-idx rv">第八场 · 当日傍晚</p>
+      <h3 class="scene-name rv d1">西仓坡</h3>
+      <p class="scene-place rv d1">昆明西仓坡小巷 · 黄昏 · 暮色苍茫 · 巷口几株山茶花开得正好</p>
+      <p class="scene-body rv d2">闻一多与闻立鹤从《民主周刊》社记者招待会归来，缓步而行。他停下，看着巷口的山茶花：“你小时候，家里院子也有这么一株。那年我还在芝加哥，写信问你妈，山茶花开了没有。”立鹤喉头一紧：“爸，您今天……不怕吗？”他望着花，慢慢说：“怕。从前怕，怕对不起先生，对不起家里。今天不怕了——今天该说的都说了，该做的都做了。立鹤，你记住：人这辈子，怕的是没说完真话就闭了嘴。”</p>
+      <div class="scene-lyric stagger" style="margin-top:26px">
+        <p class="ly-name">《咏叹调 · 归途》 · 发花</p>
+        <p>该说的话，今天说完了，<br>心里头的石头，落了地啦。</p>
+        <p>黄昏的山茶花，开满枝桠，<br>回家的路，我还是认得它。</p>
+      </div>
+      <p class="scene-body rv d3" style="margin-top:24px">同一时刻，闻宅。高贞守着灯，一面缝衣，一面轻声哼起那支摇篮曲：“你往前走，我替你守着这盏灯。灯不灭，你就还有家。”歌声未落，西仓坡巷口枪声骤起。高贞手里的针，猛地扎进指腹。灯，晃了一下。</p>
+      <p class="scene-body rv d2" style="margin-top:16px">父子相视一笑，转身走进巷子深处。忽然，巷口涌出几条黑影，枪口在暮色里一闪——闻立鹤猛然扑向父亲：“爸——！”</p>
+      <blockquote class="scene-quote rv d3" style="margin-top:26px">
+        ……正义……是杀不完的……<br>真理……永远存在……<br>
+        <span class="rhyme" style="font-family:var(--sans);font-weight:400;font-size:12.5px;margin-top:10px;display:block;opacity:.7">《宣叙调 · 倒地》 · 引《最后一次讲演》原文</span>
+      </blockquote>
+      <div class="scene-lyric stagger" style="margin-top:26px">
+        <p class="ly-name">《合唱 · 红烛 · 挽》 · 一七</p>
+        <p>红烛熄了，余温不熄，<br>燃过的灰，也攥在手里。</p>
+        <p>你照过的路，天亮还亮在那里，<br>后来的人，接着你的火走到底。</p>
+      </div>
+      <p class="scene-body rv d3" style="margin-top:24px">闻一多身中十余弹，缓缓倒下，目光仍望着巷口的山茶花。闻立鹤护在父亲身前，身中五枪，血流如注，仍挣扎着向父亲爬去。灯光全暗。静场。许久，一缕烛光从暗处亮起。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 尾声 ===== -->
+<section class="section epilogue" id="epilogue">
+  <div class="shell">
+    <p class="kicker rv">尾声 · 红烛不灭 · 今日昆明</p>
+    <h2 class="h2 rv d1">后来的人，接着你的火走到底</h2>
+    <div class="epi-grid" style="margin-top:26px">
+      <div class="epi-photos">
+        <figure class="epi-photo rv d2">
+          <img class="photo-arch" src="https://aka.doubaocdn.com/s/o3eL9G16LK" alt="西仓坡闻一多先生殉难处纪念碑">
+          <figcaption class="cap">西仓坡“闻一多先生殉难处”纪念碑 · 昆明市委党史研究室</figcaption>
+        </figure>
+        <figure class="epi-photo rv d3">
+          <img class="photo-arch" src="https://aka.doubaocdn.com/s/V5UR95Go1A" alt="云南大学至公堂今貌：红柱彩绘斗拱">
+          <figcaption class="cap">云南大学至公堂今貌（公开摄影）</figcaption>
+        </figure>
+      </div>
+      <div>
+        <p class="epi-voice rv d2"><b>青年领诵</b>（在纪念碑前站定）：先生，您说过的话，我们记着——“咱们的中国”。今天，我们接着往下说。</p>
+        <p class="epi-voice rv d3"><b>青年众</b>：咱们的中国！</p>
+        <p class="epi-voice rv d3">先生，您当年在至公堂说，光明就在眼前。先生，您当年在西仓坡说，回家的路，认得咱家。山茶花年年开，我们年年来看您。您没说完的话，我们说给下一代听。</p>
+        <div class="epi-lyric stagger">
+          <p class="ly-name">《合唱 · 红烛不灭》 · 江阳</p>
+          <p>红烛啊，燃了半生的光，<br>你烧尽自己，照亮来路的方向。</p>
+          <p>我们接住你的火，接着往前闯，<br>咱们的中国，还要更亮堂！</p>
+        </div>
+        <div class="epi-lyric stagger" style="margin-top:22px">
+          <p class="ly-name">《终曲 · 对唱》 · 引《一句话》原诗 · 梭坡</p>
+          <p>（青年）有一句话说出就是祸，<br>（闻一多，自时光深处）有一句话能点得着火。</p>
+          <p>（全体）突然晴天里一个霹雳，<br>爆一声：“咱们的中国！”</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 唱段精选 ===== -->
+<section class="section songs" id="songs">
+  <div class="shell">
+    <p class="kicker rv">唱段精选</p>
+    <h2 class="h2 rv d1">一支红烛的六次燃烧</h2>
+    <p class="h2-sub rv d2">六首唱词，从点燃到燃尽，再到交到后人手中。全部唱段仅保留唱词与辙口，无调性、拍号、速度标注。</p>
+
+    <div class="song rv d2">
+      <div class="song-side">
+        <h3 class="song-name">红烛</h3>
+        <p class="song-form">咏叹调 · 一七辙</p>
+        <p class="song-scene">第二场 · 芝加哥 · 1922年冬</p>
+      </div>
+      <div class="song-text stagger">
+        <p>一支红烛，烛泪落地，<br>照见故国，山河万里。</p>
+        <p>你燃自己，不问归期，<br>我拿什么，还你？</p>
+        <p class="quote">红烛啊！这样红的烛！<br>诗人啊！吐出你的心来比比，可是一般颜色？<br>（引《红烛》原诗）</p>
+      </div>
+    </div>
+
+    <div class="song rv d2">
+      <div class="song-side">
+        <h3 class="song-name">他还在等我</h3>
+        <p class="song-form">内心咏叹调 · 发花辙（二四押）</p>
+        <p class="song-scene">序幕 · 至公堂 · 1946年7月15日上午</p>
+      </div>
+      <div class="song-text stagger">
+        <p>他还在等我，<br>等我说完那句没说完的话。</p>
+        <p>我若沉默，谁替他开口？<br>我若退后，谁挡在台前？</p>
+      </div>
+    </div>
+
+    <div class="song rv d2">
+      <div class="song-side">
+        <h3 class="song-name">最后的讲演</h3>
+        <p class="song-form">咏叹调 · 怀来辙</p>
+        <p class="song-scene">第七场 · 至公堂 · 1946年7月15日上午</p>
+      </div>
+      <div class="song-text stagger">
+        <p>你们杀死一个李公朴，<br>会有千百万个李公朴站起来！</p>
+        <p>你们将失去千百万的人民！<br>正义是杀不完的，因为真理永远存在！</p>
+        <p class="quote">（引《最后一次讲演》原文）</p>
+      </div>
+    </div>
+
+    <div class="song rv d2">
+      <div class="song-side">
+        <h3 class="song-name">咱们的中国</h3>
+        <p class="song-form">合唱 · 梭坡辙</p>
+        <p class="song-scene">第三场 · 西南联大 · 1943年冬（引《一句话》原诗）</p>
+      </div>
+      <div class="song-text stagger">
+        <p>有一句话说出就是祸，<br>有一句话能点得着火。</p>
+        <p>别看五千年没有说破，<br>你猜得透火山的缄默？</p>
+        <p>突然晴天里一个霹雳，<br>爆一声：“咱们的中国！”</p>
+      </div>
+    </div>
+
+    <div class="song rv d2">
+      <div class="song-side">
+        <h3 class="song-name">归途</h3>
+        <p class="song-form">咏叹调 · 发花辙</p>
+        <p class="song-scene">第八场 · 西仓坡 · 1946年7月15日傍晚</p>
+      </div>
+      <div class="song-text stagger">
+        <p>该说的话，今天说完了，<br>心里头的石头，落了地啦。</p>
+        <p>黄昏的山茶花，开满枝桠，<br>回家的路，我还是认得它。</p>
+      </div>
+    </div>
+
+    <div class="song rv d2">
+      <div class="song-side">
+        <h3 class="song-name">红烛不灭</h3>
+        <p class="song-form">合唱 · 江阳辙</p>
+        <p class="song-scene">尾声 · 今日昆明 · 西仓坡殉难处纪念碑前</p>
+      </div>
+      <div class="song-text stagger">
+        <p>红烛啊，燃了半生的光，<br>你烧尽自己，照亮来路的方向。</p>
+        <p>我们接住你的火，接着往前闯，<br>咱们的中国，还要更亮堂！</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 制作信息 ===== -->
+<section class="section production" id="production">
+  <div class="shell">
+    <p class="kicker rv">制作信息</p>
+    <h2 class="h2 rv d1">主创与版本</h2>
+    <div class="prod-grid" style="margin-top:26px">
+      <div class="prod-item rv d2">
+        <p class="prod-label">编剧</p>
+        <p class="prod-val">孙子岚 · 白耀洲</p>
+      </div>
+      <div class="prod-item rv d2">
+        <p class="prod-label">音乐</p>
+        <p class="prod-val">彭侠颖</p>
+      </div>
+      <div class="prod-item rv d2">
+        <p class="prod-label">体裁 / 规模</p>
+        <p class="prod-val">民族歌剧 · 三幕八场 · 约120分钟</p>
+      </div>
+      <div class="prod-item rv d3">
+        <p class="prod-label">题材出处</p>
+        <p class="prod-val">云南省“讲好五个故事”之③</p>
+        <p class="prod-note">“闻一多发表‘最后的演讲’、舍生取义的故事”</p>
+      </div>
+      <div class="prod-item rv d3">
+        <p class="prod-label">版本</p>
+        <p class="prod-val">V3.0 · 2026年11月</p>
+        <p class="prod-note">全剧含《剧本审查报告》：戏剧性、史实、思政、法律四层审查通过；13 项关键史实全部“已查证”。</p>
+      </div>
+      <div class="prod-item rv d3">
+        <p class="prod-label">史实边界</p>
+        <p class="prod-val" style="font-size:16px;line-height:1.8;font-weight:400">《最后一次讲演》引文按民盟青岛市委刊本逐字核对；李公朴遇刺细节依昆明市委党史研究室、云南省档案馆、云南省政府门户等官方信源。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ===== 页脚 ===== -->
+<footer class="footer">
+  <div class="shell">
+    <p class="f-title">闻一多<span class="zh-red">先生</span></p>
+    <p class="f-sub">革命历史题材 · 民族歌剧 · 红烛不灭</p>
+    <p class="f-creds">编剧 <b>孙子岚</b> · <b>白耀洲</b>　音乐 <b>彭侠颖</b>　V3.0 · 2026年11月</p>
+    <div class="f-cols">
+      <div>
+        <h3>剧情与唱词</h3>
+        <ul>
+          <li>剧本 V3.0 全文及《剧本审查报告》见 Word 文档《闻一多先生》（编剧：孙子岚、白耀洲；音乐：彭侠颖）</li>
+          <li>本页唱词与台词均摘自剧本原文；辙口标注与剧本一致</li>
+        </ul>
+      </div>
+      <div>
+        <h3>图片来源</h3>
+        <ul>
+          <li>闻一多先生肖像 —— 历史档案照片（公开转载）</li>
+          <li>李公朴先生肖像 —— 历史档案照片（公开转载）</li>
+          <li>西南联大校舍 —— 西南联大博物馆图（转载自共产党员网《红色印记》）</li>
+          <li>云南大学至公堂 1946 年旧影 —— 闻黎明供图（转载自公开报道）</li>
+          <li>云南大学至公堂今貌 —— 公开摄影</li>
+          <li>西仓坡“闻一多先生殉难处”纪念碑 —— 昆明市委党史研究室</li>
+        </ul>
+      </div>
+      <div>
+        <h3>史实依据（一级信源）</h3>
+        <ul>
+          <li>新华社通稿 / 人民网党史频道 · 闻一多生平</li>
+          <li>昆明市委党史研究室 · 李公朴遇刺、西仓坡殉难处</li>
+          <li>云南省档案馆 / 云南省政府门户 · 李闻血案</li>
+          <li>民盟青岛市委《最后一次的讲演》全文刊本</li>
+          <li>清华校友总会 / 央视网 · 闻一多选集与评价</li>
+        </ul>
+      </div>
+    </div>
+    <p class="f-note">本站为剧本展示网站，无商业用途。革命历史题材创作坚持正确党史观，讴歌英烈，无历史虚无主义；真实人物正面塑造，无戏说、无绰号、无丑化。</p>
+  </div>
+</footer>
+
+<script>
+/* ===== 滚动入场 ===== */
+(function(){
+  var els = document.querySelectorAll('.rv');
+  if(!('IntersectionObserver' in window)){
+    els.forEach(function(el){el.classList.add('in');});
+    return;
+  }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(en){
+      if(en.isIntersecting){
+        en.target.classList.add('in');
+        io.unobserve(en.target);
+      }
+    });
+  },{threshold:0.12,rootMargin:'0px 0px -6% 0px'});
+  els.forEach(function(el){io.observe(el);});
+})();
+
+/* ===== 导航当前章节高亮 ===== */
+(function(){
+  var secs = document.querySelectorAll('main section[id]');
+  if(!secs.length){return;}
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(en){
+      if(!en.isIntersecting){return;}
+      var id = en.target.id;
+      document.querySelectorAll('.topnav a').forEach(function(a){
+        a.classList.toggle('active', a.getAttribute('href') === '#' + id);
+      });
+    });
+  },{rootMargin:'-38% 0px -55% 0px',threshold:0});
+  secs.forEach(function(s){io.observe(s);});
+})();
+
+/* ===== 唱词/金句逐行错落 ===== */
+(function(){
+  var boxes = document.querySelectorAll('.stagger');
+  if(!boxes.length){return;}
+  if(!('IntersectionObserver' in window)){
+    boxes.forEach(function(b){b.classList.add('in');});
+    return;
+  }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(en){
+      if(en.isIntersecting){
+        en.target.classList.add('in');
+        io.unobserve(en.target);
+      }
+    });
+  },{threshold:0.25,rootMargin:'0px 0px -8% 0px'});
+  boxes.forEach(function(b){io.observe(b);});
+})();
+
+/* ===== 滚动进度条 ===== */
+(function(){
+  var bar = document.getElementById('progress');
+  if(!bar){return;}
+  var ticking = false;
+  function update(){
+    var h = document.documentElement;
+    var max = h.scrollHeight - h.clientHeight;
+    var p = max > 0 ? (h.scrollTop / max) : 0;
+    bar.style.transform = 'scaleX(' + p + ')';
+    ticking = false;
+  }
+  window.addEventListener('scroll', function(){
+    if(!ticking){ticking = true; requestAnimationFrame(update);}
+  },{passive:true});
+  update();
+})();
+</script>
+</body>
+</html>

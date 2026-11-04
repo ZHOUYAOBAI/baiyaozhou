@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>白耀洲 · 红色歌剧作品集</title>
+<link rel="preconnect" href="https://miaoda.feishu.cn">
+<link rel="stylesheet" href="https://miaoda.feishu.cn/fonts/css2?family=Noto+Serif+SC:wght@400;600;700;900&family=Noto+Sans+SC:wght@300;400;500&display=swap">
+<style>
+:root{
+  --bg:#0B2B25;
+  --ink:#EDE6D3;
+  --accent:#E2723A;
+  --gold:#C9A35C;
+  --line:rgba(237,230,211,.12);
+  --surface:rgba(237,230,211,.03);
+  --serif:"Noto Serif SC",serif;
+  --sans:"Noto Sans SC",sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  font-family:var(--serif);
+  background:var(--bg);
+  color:var(--ink);
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:40px 20px;
+  line-height:1.7;
+}
+.wrap{max-width:900px;width:100%}
+.kicker{
+  font-family:var(--sans);
+  font-size:12px;
+  letter-spacing:.4em;
+  color:var(--gold);
+  margin-bottom:24px;
+}
+h1{
+  font-size:clamp(36px,6vw,64px);
+  font-weight:900;
+  line-height:1.1;
+  margin-bottom:16px;
+  letter-spacing:.04em;
+}
+h1 span{color:var(--accent)}
+.sub{
+  font-size:16px;
+  color:rgba(237,230,211,.6);
+  margin-bottom:60px;
+  max-width:50ch;
+}
+.works{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:20px;
+}
+.work{
+  display:block;
+  padding:32px 28px;
+  border:1px solid var(--line);
+  background:var(--surface);
+  text-decoration:none;
+  color:var(--ink);
+  transition:all .3s;
+}
+.work:hover{
+  border-color:var(--gold);
+  transform:translateY(-2px);
+  background:rgba(201,163,92,.05);
+}
+.work .year{
+  font-family:var(--sans);
+  font-size:12px;
+  letter-spacing:.2em;
+  color:var(--accent);
+  margin-bottom:12px;
+}
+.work .title{
+  font-size:24px;
+  font-weight:700;
+  margin-bottom:8px;
+}
+.work .desc{
+  font-size:14px;
+  color:rgba(237,230,211,.5);
+  line-height:1.6;
+}
+.footer{
+  margin-top:60px;
+  font-family:var(--sans);
+  font-size:12px;
+  color:rgba(237,230,211,.3);
+  letter-spacing:.1em;
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="kicker">BAI YAOZHOU · RED OPERAS</div>
+  <h1>白耀洲<br><span>红色歌剧作品集</span></h1>
+  <p class="sub">三部以云南党史为背景的民族歌剧，从1928年查尼皮的马灯，到1935年皎平渡的渡船，再到1946年昆明城的最后一次讲演。</p>
+  
+  <div class="works">
+    <a href="poxiao1928/" class="work">
+      <div class="year">1928 · 查尼皮</div>
+      <div class="title">破晓1928</div>
+      <div class="desc">中共云南一大旧址，跨时空结构，吴澄、李国柱夫妇就义</div>
+    </a>
+    <a href="shanhe/" class="work">
+      <div class="year">1935 · 皎平渡</div>
+      <div class="title">山河摆渡人</div>
+      <div class="desc">巧渡金沙江，彝族青年阿木阿果，船工与红军的鱼水情</div>
+    </a>
+    <a href="wenyiduo/" class="work">
+      <div class="year">1946 · 昆明</div>
+      <div class="title">闻一多先生</div>
+      <div class="desc">最后一次讲演，舍生取义，红烛精神不灭</div>
+    </a>
+  </div>
+  
+  <div class="footer">2026.11 · 内部讨论稿 · 未定稿</div>
+</div>
+</body>
+</html>

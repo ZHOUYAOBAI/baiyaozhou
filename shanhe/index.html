@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>山河摆渡人 ｜ 云南本土原创红色歌剧</title>
+<meta name="description" content="云南本土原创红色歌剧《山河摆渡人》完整剧本。六幕、40 首曲目，从 1932 年彝寨火塘到 1935 年巧渡金沙江。">
+<meta name="theme-color" content="#1A0C0E">
+<meta property="og:type" content="website">
+<meta property="og:title" content="山河摆渡人 ｜ 云南本土原创红色歌剧">
+<meta property="og:description" content="六幕 · 四十首曲目。从 1932 年彝寨火塘到 1935 年巧渡金沙江——完整剧本在线读。">
+<meta property="og:locale" content="zh_CN">
+<link rel="stylesheet" href="assets/css/main.css?v=2">
+<link rel="preload" href="assets/js/three.module.js" as="script" crossorigin>
+<link rel="preload" href="assets/js/data.js" as="script">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%230E0B09'/><circle cx='16' cy='16' r='7' fill='none' stroke='%23C8102E' stroke-width='2'/></svg>">
+</head>
+<body>
+
+<!-- ══ 整站访问密码门（凭密码进入）══ -->
+<div class="site-gate" id="siteGate" hidden>
+  <div class="site-gate-card">
+    <div class="site-gate-mark" aria-hidden="true">渡</div>
+    <h2 class="site-gate-title">山河摆渡人 · 内部站点</h2>
+    <p class="site-gate-desc">本站为内部资料站点，凭访问密码进入。</p>
+    <form class="site-gate-form" id="siteGateForm" autocomplete="off">
+      <label class="site-gate-label" for="siteGateInput">访问密码</label>
+      <input class="site-gate-input" id="siteGateInput" type="password"
+             inputmode="numeric" placeholder="请输入密码" aria-label="访问密码">
+      <button class="site-gate-btn" type="submit">进 入</button>
+    </form>
+    <p class="site-gate-msg" id="siteGateMsg" role="status" aria-live="polite"></p>
+    <p class="site-gate-tip">密码由主创团队分发 · 暂不公开</p>
+  </div>
+</div>
+
+<canvas id="stage" aria-hidden="true"></canvas>
+<div class="vignette" aria-hidden="true"></div>
+
+<!-- ══ 顶栏 ══ -->
+<header class="topbar">
+  <div class="brand" data-goto="#hero" tabindex="0" role="button" aria-label="回到主页顶部">山河<em>摆渡人</em></div>
+  <nav class="topnav" id="topnav" aria-label="主导航"></nav>
+</header>
+
+<!-- ══ 左侧幕次轨 ══ -->
+<nav class="rail" id="rail" aria-label="幕次导航"></nav>
+
+<main class="page">
+
+  <!-- ══ HERO ══ -->
+  <section class="hero" id="hero">
+    <div class="hero-mark" aria-hidden="true"><span>渡</span></div>
+    <div class="hero-inner">
+      <div class="hero-kicker">云南本土原创红色歌剧</div>
+      <h1 class="hero-title" data-goto="#hero" tabindex="0" role="button" aria-label="回到主页顶部">山河摆渡人</h1>
+      <span class="draft-stamp" aria-label="非完稿"><i>非</i><i>完</i><i>稿</i></span>
+      <p class="hero-sub" id="heroSub">历史的回眸 · 巧渡金沙江</p>
+      <div class="hero-meta" id="heroMeta"></div>
+      <div class="hero-credits" id="heroCredits"></div>
+      <button class="hero-cta" data-goto="#act-0">开演 · 序幕</button>
+    </div>
+    <div class="scroll-hint" aria-hidden="true"><span>向下</span><i></i></div>
+    <div class="drag-hint" id="dragHint" aria-hidden="true">
+      <svg viewBox="0 0 64 24" width="64" height="24" fill="none">
+        <path d="M2 12h58M52 5l8 7-8 7" stroke="currentColor" stroke-width="1.4"
+              stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <span>拖动 · 拉开山色</span>
+    </div>
+  </section>
+
+  <!-- ══ 核心主线 ══ -->
+  <section class="band dark" id="mainline">
+    <div class="wrap wide">
+      <div class="sec-head">
+        <div class="sec-num">主 线</div>
+        <h2 class="sec-title">一条被历史记住的渡江路</h2>
+        <p class="sec-desc" id="spineDesc"></p>
+      </div>
+      <div class="spine">
+        <div class="spine-line" aria-hidden="true"></div>
+        <div class="spine-items" id="spineItems"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ 剧本阅读权限门 ══ -->
+  <section class="band dark gate" id="gate" hidden>
+    <div class="wrap">
+      <div class="gate-card">
+        <div class="gate-mark" aria-hidden="true">渡</div>
+        <h2 class="gate-title">全本剧本 · 限内部传阅</h2>
+        <p class="gate-desc">
+          六幕完整剧本正文与全部唱段歌词仅供创作团队与演出主创阅读。<br>
+          剧目概况、主线脉络、歌单目录、人物小传与伏笔结构对外公开。
+        </p>
+        <form class="gate-form" id="gateForm" autocomplete="off">
+          <label class="gate-label" for="gateInput">阅读密码</label>
+          <input class="gate-input" id="gateInput" type="password"
+                 inputmode="numeric" placeholder="请输入密码" aria-label="阅读密码">
+          <button class="gate-btn" type="submit">开 卷</button>
+        </form>
+        <p class="gate-msg" id="gateMsg" role="status" aria-live="polite"></p>
+        <p class="gate-tip">密码由主创团队分发 · 公开页面仅展示剧目概况</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ 剧目 ══ -->
+  <div id="acts"></div>
+
+  <!-- ══ 曲目总览 ══ -->
+  <section class="band dark" id="songs">
+    <div class="wrap wide">
+      <div class="sec-head">
+        <div class="sec-num">歌 单</div>
+        <h2 class="sec-title">全剧四十首</h2>
+        <p class="sec-desc">点开任意一首，看它的完整歌词。咏叹调、宣叙调、合唱，各有其声。</p>
+      </div>
+      <div class="songwall" id="songwall"></div>
+    </div>
+  </section>
+
+  <!-- ══ 全剧曲目表 ══ -->
+  <section class="band dark" id="songtable">
+    <div class="wrap wide">
+      <div class="sec-head">
+        <div class="sec-num">目 录</div>
+        <h2 class="sec-title">全剧曲目表</h2>
+        <p class="sec-desc">四十首曲目的幕次、体裁与演唱，一表全览。点序号可跳到该曲。</p>
+      </div>
+      <div class="table-scroll">
+        <table class="song-table">
+          <thead id="songTableHead"></thead>
+          <tbody id="songTableBody"></tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ 配乐试听 ══ -->
+  <section class="band dark" id="scoring">
+    <div class="wrap wide">
+      <div class="sec-head">
+        <div class="sec-num">配 乐</div>
+        <h2 class="sec-title">八段配乐 Demo</h2>
+        <p class="sec-desc">剧目配乐样带 · 创作小样，非定稿。</p>
+      </div>
+      <div class="scoring-list" id="scoringList"></div>
+    </div>
+  </section>
+
+  <!-- ══ 人物 ══ -->
+  <section class="band dark" id="cast">
+    <div class="wrap wide">
+      <div class="sec-head">
+        <div class="sec-num">人 物</div>
+        <h2 class="sec-title">十一个人，一条河</h2>
+        <p class="sec-desc">阿木与阿果是艺术虚构人物，原型是千千万万无名彝、汉、傣各族群众。</p>
+      </div>
+      <div class="cast" id="castGrid"></div>
+    </div>
+  </section>
+
+  <!-- ══ 伏笔 ══ -->
+  <section class="band dark" id="threads">
+    <div class="wrap wide">
+      <div class="sec-head">
+        <div class="sec-num">伏 笔</div>
+        <h2 class="sec-title">六条线，都收到了</h2>
+        <p class="sec-desc">有些是信物，有些是人。埋下时都不是为了好看，最后一场全部落地。</p>
+      </div>
+      <div class="threads" id="threadList"></div>
+    </div>
+  </section>
+
+  <!-- ══ 页脚 ══ -->
+  <footer class="foot">
+    <div class="wrap">
+      <h2 class="foot-title">山河无恙，星火永续</h2>
+      <div class="foot-line" aria-hidden="true"></div>
+      <p class="foot-note" id="footNote"></p>
+      <div class="foot-meta">
+        <span id="footAuthor"></span>
+        <span>1932 — 1935</span>
+        <span>六幕 · 四十首曲目</span>
+      </div>
+      <p class="foot-note foot-draft">本网站所示内容为创作初稿，非定稿文件，仅供内部交流。</p>
+    </div>
+  </footer>
+
+</main>
+
+<script src="assets/js/data.js"></script>
+<script type="module" src="assets/js/main.js?v=2"></script>
+<script>
+/* 整站访问密码门：HTML 内联，不依赖外部 JS，打开即生效 */
+(function () {
+  var KEY = 'shb_site_pass', PASS = '985985';
+  var gate = document.getElementById('siteGate');
+  if (!gate) return;
+  var ok = false;
+  try { ok = sessionStorage.getItem(KEY) === '1'; } catch (e) {}
+  if (ok) { gate.hidden = true; return; }
+  gate.hidden = false;
+  var form = document.getElementById('siteGateForm');
+  var input = document.getElementById('siteGateInput');
+  var msg = document.getElementById('siteGateMsg');
+  if (!form) return;
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var v = (input && input.value || '').trim();
+    if (v === PASS) {
+      try { sessionStorage.setItem(KEY, '1'); } catch (e2) {}
+      if (msg) { msg.textContent = '欢迎进入《山河摆渡人》'; msg.className = 'site-gate-msg ok'; }
+      setTimeout(function () { gate.hidden = true; }, 420);
+    } else {
+      if (msg) { msg.textContent = '密码不正确，请向主创团队索取'; msg.className = 'site-gate-msg'; }
+      if (input) { input.value = ''; input.focus(); }
+    }
+  });
+})();
+</script>
+</body>
+</html>

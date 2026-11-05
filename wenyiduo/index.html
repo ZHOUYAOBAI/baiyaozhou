@@ -442,6 +442,7 @@ a:focus-visible,button:focus-visible{
 .audio-sub{font-family:var(--sans);font-size:12.5px;color:rgba(239,230,210,.55);margin-top:5px;letter-spacing:.05em;}
 .audio-track{margin-top:13px;height:3px;background:rgba(239,230,210,.17);position:relative;cursor:pointer;touch-action:manipulation;}
 .audio-track::before{content:"";position:absolute;inset:-9px 0;background:transparent;}
+.audio-buf{position:absolute;left:0;top:0;bottom:0;width:0;background:rgba(217,164,65,.30);pointer-events:none;transition:width .25s linear;}
 .audio-fill{position:absolute;left:0;top:0;bottom:0;width:0;background:var(--gold);pointer-events:none;}
 .audio-time{font-family:var(--sans);font-size:12px;color:rgba(239,230,210,.5);white-space:nowrap;font-variant-numeric:tabular-nums;letter-spacing:.04em;}
 @media(max-width:640px){
@@ -1401,11 +1402,12 @@ a:focus-visible,button:focus-visible{
         <div class="audio-title">薪火</div>
         <div class="audio-sub">主题唱段 · 试听样片 · 作曲 彭侠颖 白耀洲</div>
         <div class="audio-track" id="xinhuoTrack" role="slider" aria-label="播放进度" tabindex="0">
+          <div class="audio-buf" id="xinhuoBuf"></div>
           <div class="audio-fill" id="xinhuoFill"></div>
         </div>
       </div>
       <div class="audio-time" id="xinhuoTime">0:00 / 0:00</div>
-      <audio id="xinhuoAudio" src="assets/xinhuo-demo.mp3" preload="metadata"></audio>
+      <audio id="xinhuoAudio" src="assets/xinhuo-demo.web.mp3" preload="metadata"></audio>
     </div>
 
     <div class="song rv d2">
@@ -1614,6 +1616,7 @@ a:focus-visible,button:focus-visible{
   var btn = document.getElementById('xinhuoBtn');
   var icon = document.getElementById('xinhuoIcon');
   var fill = document.getElementById('xinhuoFill');
+  var bufEl = document.getElementById('xinhuoBuf');
   var track = document.getElementById('xinhuoTrack');
   var timeEl = document.getElementById('xinhuoTime');
   if(!au || !btn){return;}
@@ -1626,13 +1629,26 @@ a:focus-visible,button:focus-visible{
     var m = Math.floor(s / 60), r = Math.floor(s % 60);
     return m + ':' + (r < 10 ? '0' : '') + r;
   }
+  function paintBuf(){
+    var d = au.duration;
+    if(!bufEl || !isFinite(d) || d <= 0 || !au.buffered.length){return;}
+    var end = au.buffered.end(au.buffered.length - 1);
+    for(var i = 0; i < au.buffered.length; i++){
+      if(au.buffered.start(i) <= (au.currentTime||0) && au.buffered.end(i) >= (au.currentTime||0)){ end = au.buffered.end(i); break; }
+    }
+    bufEl.style.width = (end / d * 100) + '%';
+  }
   function paint(){
     var d = au.duration || 0, c = au.currentTime || 0;
     if(d > 0){fill.style.width = (c / d * 100) + '%';}
     timeEl.textContent = fmt(c) + ' / ' + fmt(d);
   }
-  au.addEventListener('loadedmetadata', paint);
-  au.addEventListener('timeupdate', paint);
+  au.addEventListener('loadedmetadata', function(){ paint(); paintBuf(); });
+  au.addEventListener('progress', paintBuf);
+  au.addEventListener('timeupdate', function(){ paint(); paintBuf(); });
+  au.addEventListener('seeking', paintBuf);
+  au.addEventListener('waiting', function(){ timeEl.textContent = '缓冲中…'; });
+  au.addEventListener('playing', function(){ paint(); });
   au.addEventListener('ended', function(){
     btn.classList.remove('is-playing');
     btn.setAttribute('aria-label', '播放《薪火》样片');

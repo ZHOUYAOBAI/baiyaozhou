@@ -1622,7 +1622,10 @@ a:focus-visible,button:focus-visible{
   /* 独立 Audio 实例播放：不受元素可见性 / 布局限制，移动端更稳 */
   var au = new Audio();
   au.preload = 'none';
-  if (el) { au.src = el.getAttribute('src'); }
+  var localSrc = el ? el.getAttribute('src') : null;
+  var cdnSrc = localSrc ? ('https://cdn.jsdelivr.net/gh/ZHOUYAOBAI/baiyaozhou@main/wenyiduo/' + localSrc) : null;
+  var triedLocal = false;
+  if (cdnSrc) { au.src = cdnSrc; }
   var prefetched = false;
   function prefetch(){
     if (prefetched || !au.src) return;
@@ -1661,6 +1664,15 @@ a:focus-visible,button:focus-visible{
     if(d > 0){fill.style.width = (c / d * 100) + '%';}
     timeEl.textContent = fmt(c) + ' / ' + fmt(d);
   }
+  au.addEventListener('error', function(){
+    if (!triedLocal && au.src && au.src.indexOf('jsdelivr') >= 0){
+      triedLocal = true;
+      au.src = localSrc;
+      try { au.load(); } catch(e){}
+      return;
+    }
+    btn.classList.remove('is-loading');
+  });
   au.addEventListener('playing', function(){ btn.classList.remove('is-loading'); paint(); });
   au.addEventListener('canplay', function(){ btn.classList.remove('is-loading'); });
   au.addEventListener('waiting', function(){ btn.classList.add('is-loading'); });
@@ -1669,6 +1681,15 @@ a:focus-visible,button:focus-visible{
   au.addEventListener('timeupdate', function(){ paint(); paintBuf(); });
   au.addEventListener('seeking', paintBuf);
   au.addEventListener('waiting', function(){ timeEl.textContent = '缓冲中…'; });
+  au.addEventListener('error', function(){
+    if (!triedLocal && au.src && au.src.indexOf('jsdelivr') >= 0){
+      triedLocal = true;
+      au.src = localSrc;
+      try { au.load(); } catch(e){}
+      return;
+    }
+    btn.classList.remove('is-loading');
+  });
   au.addEventListener('playing', function(){ paint(); });
   au.addEventListener('ended', function(){
     btn.classList.remove('is-playing');

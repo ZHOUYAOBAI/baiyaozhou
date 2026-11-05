@@ -416,6 +416,39 @@ a:focus-visible,button:focus-visible{
 .song-text .quote{font-weight:400;color:#4A4235;}
 .song-text .rhyme{font-family:var(--sans);font-weight:400;font-size:12.5px;color:#8A7A5C;margin-top:12px;}
 
+/* ===== 音频样片 ===== */
+.audio-card{
+  margin-top:38px;
+  background:var(--ink);color:var(--body-dark);
+  border-left:5px solid var(--red);
+  padding:22px 26px;
+  display:grid;grid-template-columns:auto 1fr auto;
+  gap:20px;align-items:center;
+}
+.audio-play{
+  width:52px;height:52px;border-radius:50%;
+  border:1.5px solid var(--gold);background:transparent;
+  color:var(--gold-soft);cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  transition:background .25s ease,transform .2s ease,color .25s ease;
+  padding:0;flex-shrink:0;
+}
+.audio-play:hover{background:rgba(217,164,65,.16);transform:scale(1.05);}
+.audio-play:active{transform:scale(.97);}
+.audio-play svg{width:15px;height:15px;margin-left:1px;}
+.audio-play.is-playing svg{margin-left:0;}
+.audio-meta{min-width:0;}
+.audio-title{font-size:18px;font-weight:700;letter-spacing:.02em;}
+.audio-sub{font-family:var(--sans);font-size:12.5px;color:rgba(239,230,210,.55);margin-top:5px;letter-spacing:.05em;}
+.audio-track{margin-top:13px;height:3px;background:rgba(239,230,210,.17);position:relative;cursor:pointer;touch-action:manipulation;}
+.audio-track::before{content:"";position:absolute;inset:-9px 0;background:transparent;}
+.audio-fill{position:absolute;left:0;top:0;bottom:0;width:0;background:var(--gold);pointer-events:none;}
+.audio-time{font-family:var(--sans);font-size:12px;color:rgba(239,230,210,.5);white-space:nowrap;font-variant-numeric:tabular-nums;letter-spacing:.04em;}
+@media(max-width:640px){
+  .audio-card{grid-template-columns:auto 1fr;gap:14px;padding:18px 18px 20px;}
+  .audio-time{grid-column:1/-1;text-align:right;margin-top:-4px;}
+}
+
 /* ===== 制作信息 ===== */
 .production{background:var(--ink);color:var(--body-dark);}
 .production .shell{padding-top:var(--pad-l);padding-bottom:var(--pad-l);}
@@ -1360,6 +1393,21 @@ a:focus-visible,button:focus-visible{
     <h2 class="h2 rv d1">一支红烛的六次燃烧</h2>
     <p class="h2-sub rv d2">六首唱词，从点燃到燃尽，再到交到后人手中。全部唱段仅保留唱词与辙口，无调性、拍号、速度标注。</p>
 
+    <div class="audio-card rv d2">
+      <button class="audio-play" id="xinhuoBtn" type="button" aria-label="播放《薪火》样片">
+        <svg id="xinhuoIcon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4l14 8-14 8z"/></svg>
+      </button>
+      <div class="audio-meta">
+        <div class="audio-title">薪火</div>
+        <div class="audio-sub">主题唱段 · 试听样片 · 作曲 彭侠颖</div>
+        <div class="audio-track" id="xinhuoTrack" role="slider" aria-label="播放进度" tabindex="0">
+          <div class="audio-fill" id="xinhuoFill"></div>
+        </div>
+      </div>
+      <div class="audio-time" id="xinhuoTime">0:00 / 0:00</div>
+      <audio id="xinhuoAudio" src="assets/xinhuo-demo.mp3" preload="metadata"></audio>
+    </div>
+
     <div class="song rv d2">
       <div class="song-side">
         <h3 class="song-name">红烛</h3>
@@ -1558,6 +1606,77 @@ a:focus-visible,button:focus-visible{
     });
   },{threshold:0.25,rootMargin:'0px 0px -8% 0px'});
   boxes.forEach(function(b){io.observe(b);});
+})();
+
+/* ===== 《薪火》样片播放器 ===== */
+(function(){
+  var au = document.getElementById('xinhuoAudio');
+  var btn = document.getElementById('xinhuoBtn');
+  var icon = document.getElementById('xinhuoIcon');
+  var fill = document.getElementById('xinhuoFill');
+  var track = document.getElementById('xinhuoTrack');
+  var timeEl = document.getElementById('xinhuoTime');
+  if(!au || !btn){return;}
+
+  var PLAY = '<path d="M7 4l14 8-14 8z"/>';
+  var PAUSE = '<path d="M7 4h4v16H7zM13 4h4v16h-4z"/>';
+
+  function fmt(s){
+    if(!isFinite(s) || s < 0){s = 0;}
+    var m = Math.floor(s / 60), r = Math.floor(s % 60);
+    return m + ':' + (r < 10 ? '0' : '') + r;
+  }
+  function paint(){
+    var d = au.duration || 0, c = au.currentTime || 0;
+    if(d > 0){fill.style.width = (c / d * 100) + '%';}
+    timeEl.textContent = fmt(c) + ' / ' + fmt(d);
+  }
+  au.addEventListener('loadedmetadata', paint);
+  au.addEventListener('timeupdate', paint);
+  au.addEventListener('ended', function(){
+    btn.classList.remove('is-playing');
+    btn.setAttribute('aria-label', '播放《薪火》样片');
+    icon.innerHTML = PLAY;
+    au.pause();
+    au.currentTime = 0;
+    paint();
+  });
+  au.addEventListener('error', function(){
+    timeEl.textContent = '音频加载失败';
+  });
+
+  btn.addEventListener('click', function(){
+    if(au.paused){
+      document.querySelectorAll('audio').forEach(function(a){ if(a !== au){a.pause();} });
+      au.play().catch(function(){ timeEl.textContent = '点击后再试一次'; });
+      btn.classList.add('is-playing');
+      btn.setAttribute('aria-label', '暂停《薪火》样片');
+      icon.innerHTML = PAUSE;
+    }else{
+      au.pause();
+      btn.classList.remove('is-playing');
+      btn.setAttribute('aria-label', '播放《薪火》样片');
+      icon.innerHTML = PLAY;
+    }
+  });
+
+  function seek(e){
+    var d = au.duration;
+    if(!d){return;}
+    var rect = track.getBoundingClientRect();
+    var x = (e.touches ? e.touches[0].clientX : e.clientX) - rect.left;
+    var ratio = Math.max(0, Math.min(1, x / rect.width));
+    au.currentTime = ratio * d;
+    paint();
+  }
+  track.addEventListener('click', seek);
+  track.addEventListener('keydown', function(e){
+    if(!au.duration){return;}
+    if(e.key === 'ArrowRight'){au.currentTime = Math.min(au.duration, au.currentTime + 5); e.preventDefault();}
+    if(e.key === 'ArrowLeft'){au.currentTime = Math.max(0, au.currentTime - 5); e.preventDefault();}
+    if(e.key === ' '){btn.click(); e.preventDefault();}
+    paint();
+  });
 })();
 
 /* ===== 滚动进度条 ===== */

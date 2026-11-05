@@ -417,6 +417,7 @@ a:focus-visible,button:focus-visible{
 .song-text .rhyme{font-family:var(--sans);font-weight:400;font-size:12.5px;color:#8A7A5C;margin-top:12px;}
 
 /* ===== 音频样片 ===== */
+.audio-card audio{display:none}
 .audio-card{
   margin-top:38px;
   background:var(--ink);color:var(--body-dark);
@@ -437,6 +438,11 @@ a:focus-visible,button:focus-visible{
 .audio-play:active{transform:scale(.97);}
 .audio-play svg{width:15px;height:15px;margin-left:1px;}
 .audio-play.is-playing svg{margin-left:0;}
+.audio-play.is-loading{position:relative;border-color:rgba(217,164,65,.45);}
+.audio-play.is-loading svg{opacity:0;}
+.audio-play.is-loading::after{content:"";position:absolute;width:18px;height:18px;border-radius:50%;
+  border:2px solid rgba(217,164,65,.3);border-top-color:var(--gold);animation:xspin .75s linear infinite;}
+@keyframes xspin{to{transform:rotate(360deg)}}
 .audio-meta{min-width:0;}
 .audio-title{font-size:18px;font-weight:700;letter-spacing:.02em;}
 .audio-sub{font-family:var(--sans);font-size:12.5px;color:rgba(239,230,210,.55);margin-top:5px;letter-spacing:.05em;}
@@ -1407,7 +1413,7 @@ a:focus-visible,button:focus-visible{
         </div>
       </div>
       <div class="audio-time" id="xinhuoTime">0:00 / 0:00</div>
-      <audio id="xinhuoAudio" src="assets/xinhuo-demo.web.mp3" preload="metadata"></audio>
+      <audio id="xinhuoAudio" src="assets/xinhuo-demo.web.mp3" preload="none"></audio>
     </div>
 
     <div class="song rv d2">
@@ -1612,14 +1618,26 @@ a:focus-visible,button:focus-visible{
 
 /* ===== 《薪火》样片播放器 ===== */
 (function(){
-  var au = document.getElementById('xinhuoAudio');
+  var el = document.getElementById('xinhuoAudio');
+  /* 独立 Audio 实例播放：不受元素可见性 / 布局限制，移动端更稳 */
+  var au = new Audio();
+  au.preload = 'none';
+  if (el) { au.src = el.getAttribute('src'); }
+  var prefetched = false;
+  function prefetch(){
+    if (prefetched || !au.src) return;
+    prefetched = true;
+    au.preload = 'auto';
+    try { au.load(); } catch(e){}
+  }
   var btn = document.getElementById('xinhuoBtn');
   var icon = document.getElementById('xinhuoIcon');
   var fill = document.getElementById('xinhuoFill');
   var bufEl = document.getElementById('xinhuoBuf');
+  var card = document.querySelector('.audio-card');
   var track = document.getElementById('xinhuoTrack');
   var timeEl = document.getElementById('xinhuoTime');
-  if(!au || !btn){return;}
+  if(!au.src || !btn){return;}
 
   var PLAY = '<path d="M7 4l14 8-14 8z"/>';
   var PAUSE = '<path d="M7 4h4v16H7zM13 4h4v16h-4z"/>';
@@ -1643,6 +1661,9 @@ a:focus-visible,button:focus-visible{
     if(d > 0){fill.style.width = (c / d * 100) + '%';}
     timeEl.textContent = fmt(c) + ' / ' + fmt(d);
   }
+  au.addEventListener('playing', function(){ btn.classList.remove('is-loading'); paint(); });
+  au.addEventListener('canplay', function(){ btn.classList.remove('is-loading'); });
+  au.addEventListener('waiting', function(){ btn.classList.add('is-loading'); });
   au.addEventListener('loadedmetadata', function(){ paint(); paintBuf(); });
   au.addEventListener('progress', paintBuf);
   au.addEventListener('timeupdate', function(){ paint(); paintBuf(); });
@@ -1664,7 +1685,9 @@ a:focus-visible,button:focus-visible{
   btn.addEventListener('click', function(){
     if(au.paused){
       document.querySelectorAll('audio').forEach(function(a){ if(a !== au){a.pause();} });
-      au.play().catch(function(){ timeEl.textContent = '点击后再试一次'; });
+      btn.classList.add('is-loading');
+      var pr = au.play();
+      if(pr && pr.catch){ pr.catch(function(){ btn.classList.remove('is-loading'); timeEl.textContent = '点击后再试一次'; }); }
       btn.classList.add('is-playing');
       btn.setAttribute('aria-label', '暂停《薪火》样片');
       icon.innerHTML = PAUSE;
@@ -1684,6 +1707,13 @@ a:focus-visible,button:focus-visible{
     var ratio = Math.max(0, Math.min(1, x / rect.width));
     au.currentTime = ratio * d;
     paint();
+  }
+  if(window.IntersectionObserver && card){
+    new IntersectionObserver(function(entries, obs){
+      entries.forEach(function(en){ if(en.isIntersecting){ prefetch(); obs.unobserve(en.target); } });
+    }, {rootMargin:'420px 0px'}).observe(card);
+  } else {
+    prefetch();
   }
   track.addEventListener('click', seek);
   track.addEventListener('keydown', function(e){
